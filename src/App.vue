@@ -1,49 +1,49 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light rounded-pill">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item mx-2 active">
+          <RouterLink to="/">Home</RouterLink>
+        </li>
+        <li class="nav-item mx-2">
+          <RouterLink to="/about">About</RouterLink>
+        </li>
+        <li class="nav-item mx-2">
+          <RouterLink :to="{ name: '新頁面' }">newPage</RouterLink>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      <nav class="navbar navbar-expand-lg navbar-light bg-light border border-success rounded-pill">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <RouterLink to="/">Home</RouterLink>
-            </li>
-            <li class="nav-item">
-              <RouterLink to="/about">About</RouterLink>
-            </li>
-            <li class="nav-item">
-              <RouterLink :to="{ name: '新頁面' }">newPage</RouterLink>
-            </li>
-          </ul>
-        </div>
-      </nav>
     </div>
-  </header>
+  </header> -->
 
   <RouterView />
 </template>
 
 <style scoped>
-header {
+/* header {
   line-height: 1.5;
   max-height: 100vh;
 }
@@ -103,5 +103,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+} */
 </style>

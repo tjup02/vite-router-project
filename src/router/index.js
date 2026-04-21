@@ -20,10 +20,38 @@ const router = createRouter({
     {
       path: '/newPage',
       name: '新頁面',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/NewPage.vue'),
+      children: [
+        {
+          path: 'a',
+          component: () => import('../views/ComponentA.vue'),
+        },
+        {
+          path: 'b',
+          component: () => import('../views/ComponentB.vue'),
+        },
+        {
+          // <!-- 命名視圖示範 -->
+          path: 'namedView',
+          component: () => import('../views/NamedView.vue'),
+          children: [
+            {
+              path: 'b2c',
+              components: {
+                left: () => import('../views/ComponentB.vue'),
+                right: () => import('../views/ComponentC.vue'),
+              },
+            },
+            {
+              path: 'c2a',
+              components: {
+                left: () => import('../views/ComponentC.vue'),
+                right: () => import('../views/ComponentA.vue'),
+              },
+            },
+          ],
+        },
+      ],
     },
   ],
 })

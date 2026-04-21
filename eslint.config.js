@@ -18,6 +18,9 @@ export default defineConfig([
       globals: {
         ...globals.browser,
       },
+      env: {
+        node: true,
+      },
     },
   },
 
