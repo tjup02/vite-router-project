@@ -28,6 +28,20 @@
           class="list-group-item list-group-item-action"
           >c2a</RouterLink
         >
+
+        <RouterLink
+          to="/newPage/dynamicRouter/:id"
+          active-class="active"
+          class="list-group-item list-group-item-action"
+          >dynamicRouter</RouterLink
+        >
+
+        <RouterLink
+          to="/newPage/dynamicRouterByProps/:id"
+          active-class="active"
+          class="list-group-item list-group-item-action"
+          >dynamicRouterByProps</RouterLink
+        >
       </div>
     </div>
     <div class="col-8"><RouterView></RouterView></div>

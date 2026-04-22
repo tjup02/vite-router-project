@@ -32,9 +32,29 @@ const router = createRouter({
         },
         {
           // 動態路由示範
-          //  。綁上:id(可自己命名)
+          //  。 :id 是動態路由參數，用來接收 URL 中的變數
           path: 'dynamicRouter/:id',
           component: () => import('../views/DynamicRouter.vue'),
+        },
+        {
+          // 動態路由+prop示範
+          //  。 :id 是動態路由參數，用來接收 URL 中的變數
+          path: 'dynamicRouterByProps/:id',
+          component: () => import('../views/DynamicRouterByProps.vue'),
+          // props屬性
+          // 。 用來傳遞prop到頁面元件
+          // 。 參數route代表目前的路由資訊
+          // 。 路由的參數會放在 params 裡
+          // 。 props function 將 route.params.id 轉成 props 傳入元件
+          props: (route) => {
+            console.log('route', route)
+            return {
+              id: route.params.id,
+            }
+          },
+          // props: () => ({
+          //   id: 'c4cb945ffc1eac99',
+          // }),
         },
 
         {
