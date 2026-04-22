@@ -20,28 +20,34 @@
           to="/newPage/namedView/b2c"
           active-class="active"
           class="list-group-item list-group-item-action"
-          >b2c</RouterLink
+          >命名視圖b2c</RouterLink
         >
         <RouterLink
           to="/newPage/namedView/c2a"
           active-class="active"
           class="list-group-item list-group-item-action"
-          >c2a</RouterLink
+          >命名視圖c2a</RouterLink
         >
 
         <RouterLink
           to="/newPage/dynamicRouter/:id"
           active-class="active"
           class="list-group-item list-group-item-action"
-          >dynamicRouter</RouterLink
+          >動態路由($route)</RouterLink
         >
 
         <RouterLink
           to="/newPage/dynamicRouterByProps/:id"
           active-class="active"
           class="list-group-item list-group-item-action"
-          >dynamicRouterByProps</RouterLink
+          >動態路由(props)</RouterLink
         >
+        <RouterLink
+          to="/newPage/routerNavigation"
+          active-class="active"
+          class="list-group-item list-group-item-action"
+          >路由方法介紹
+        </RouterLink>
       </div>
     </div>
     <div class="col-8"><RouterView></RouterView></div>

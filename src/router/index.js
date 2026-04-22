@@ -78,6 +78,11 @@ const router = createRouter({
             },
           ],
         },
+        {
+          // 示範-路由方法介紹
+          path: 'routerNavigation',
+          component: () => import('../views/RouterNavigation.vue'),
+        },
       ],
     },
   ],
