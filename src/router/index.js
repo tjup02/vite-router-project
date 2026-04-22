@@ -31,6 +31,13 @@ const router = createRouter({
           component: () => import('../views/ComponentB.vue'),
         },
         {
+          // 動態路由示範
+          //  。綁上:id(可自己命名)
+          path: 'dynamicRouter/:id',
+          component: () => import('../views/DynamicRouter.vue'),
+        },
+
+        {
           // <!-- 命名視圖示範 -->
           path: 'namedView',
           component: () => import('../views/NamedView.vue'),
