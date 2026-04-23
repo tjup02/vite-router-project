@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light rounded-pill">
+  <nav class="fixed-top navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
     <button
       class="navbar-toggler"
@@ -38,11 +38,16 @@ import { RouterLink, RouterView } from 'vue-router'
       <HelloWorld msg="You did it!" />
     </div>
   </header> -->
-
-  <RouterView />
+  <div class="body">
+    <RouterView />
+  </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.body {
+  margin: 70px auto 0;
+  width: calc(100% - 100px);
+}
 /* header {
   line-height: 1.5;
   max-height: 100vh;

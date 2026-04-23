@@ -3,6 +3,47 @@ import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
+
+  // RouterLink 被選中時的 class(全域設定)
+  // -被選中時，自動加上.active
+  // -如果只希望指定RouterLink有這個功能，可以在指定RouterLink加上 active-class="active"
+  linkActiveClass: 'active',
+
+  // scrollBehavior():控制頁面切換後的捲動位置
+  scrollBehavior(to, from, savedPosition) {
+    // to → 目的地(路由物件)
+    //       -to.path
+    //       -to.name
+    //       -to.params
+    //       -to.query
+    //       -to.fullPath
+    // from → 出發地(路由物件)
+    //       -from.path
+    //       -from.name
+    //       -from.params
+    //       -from.query
+    //       -from.fullPath
+
+    // savedPosition → 上次滾動位置({top: xxx,left:xxx})
+    // - 只有「上一頁 / 下一頁」時才會有值
+    // - 如果是新頁面，通常是 null
+    console.log(to, from, savedPosition)
+
+    // 如果是返回頁面（上一頁 / 下一頁），滾輪會回到之前紀錄的位置
+    if (savedPosition) {
+      return savedPosition
+    }
+
+    // 如果跳轉的頁面完整路由網址包含'newPage'，載入頁面時跳到top:500
+    if (to.fullPath.match('newPage')) {
+      return {
+        top: 500,
+      }
+    }
+
+    // 新頁面 → 預設滾到最上方
+    return { top: 0 }
+  },
   routes: [
     {
       path: '/',
