@@ -85,6 +85,35 @@ const router = createRouter({
         },
       ],
     },
+    // =========================
+    // 錯誤頁面處理（404）
+    // =========================
+
+    // ⚠️ newPage 專用錯誤
+    // 。 可以放在newPage的children
+    // 。 如果放在routes外層，要放在倒數，
+    // 。 且根據路由匹配範圍：
+    //       -越精準 → 越前面
+    //       -越寬鬆 → 越後面
+
+    // 這個範例:newPage 底下找不到頁面 → 重新導向首頁
+    {
+      // 檢查newPage的子路由是否全部匹配
+      path: '/newPage/:pathMatch(.*)*',
+      // redirect 用來設定重新導向（轉址）
+      // 。 裡面可以放 path 或 name
+      redirect: {
+        path: '/',
+        // name: 'home',
+      },
+    },
+    // 全站找不到頁面 → 顯示 404 畫面
+    // ⚠️ 一定要放在 routes 最後，因為 /:pathMatch(.*)* 會匹配所有路徑
+    {
+      // 檢查是否全部匹配 → /:pathMatch(.*)*
+      path: '/:pathMatch(.*)*',
+      component: () => import('../views/NotFoundView.vue'),
+    },
   ],
 })
 
